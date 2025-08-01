@@ -1,0 +1,50 @@
+# .gitignore
+
+# ----------------------------------------------------------------
+# General Purpose
+# ----------------------------------------------------------------
+
+# Environment variables
+# Never commit sensitive data like API keys or database credentials
+.env
+.env.*
+!.env.example
+
+# Dependency directories
+# These are installed by package managers and can be regenerated
+node_modules/
+jspm_packages/
+
+# Build output
+# Compiled or bundled files that are generated from source code
+dist/
+build/
+out/
+.next/
+
+# Log files
+# Generated during runtime and not part of the source code
+logs/
+*.log
+npm-debug.log*
+yarn-error.log
+pnpm-debug.log*
+
+# Test and coverage reports
+# Generated when running tests
+coverage/
+.nyc_output/
+
+# ----------------------------------------------------------------
+# System & Editor Specific
+# ----------------------------------------------------------------
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor directories
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/base16/darktooth.min.css" integrity="sha512-3FOIFRXBuuAIzEbs8xc5bdMVdD4ORRgnrCM5Bo/ezxIl2+4Hap8J2B+ivX1FLnnoIjUo3bbb7fAyDefTE+YKQQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.0/highlight.min.js"></script>
+
+<!-- https://cdnjs.com/libraries/highlight.js -->
+</head>
+
+
+<body>
+<pre><code class="language-javascript">/**
+ * Solves the Tower of Hanoi problem recursively.
+ *
+ * @param {number} n The number of disks to move.
+ * @param {string} sourcePeg The name of the source peg (e.g., 'A').
+ * @param {string} destinationPeg The name of the destination peg (e.g., 'C').
+ * @param {string} auxiliaryPeg The name of the auxiliary/helper peg (e.g., 'B').
+ * @returns {void} Prints the sequence of moves to the console.
+ */
+function towerOfHanoi(n, sourcePeg, destinationPeg, auxiliaryPeg) {
+    // Base Case: If there's only one disk, move it directly
+    if (n === 1) {
+        console.log(`Move disk 1 from ${sourcePeg} to ${destinationPeg}`);
+        return;
+    }
+
+    // Step 1: Move n-1 disks from source to auxiliary, using destination as temp
+    // The role of destination and auxiliary pegs flip for this subproblem
+    towerOfHanoi(n - 1, sourcePeg, auxiliaryPeg, destinationPeg);
+
+    // Step 2: Move the nth (largest) disk from source to destination
+    console.log(`Move disk ${n} from ${sourcePeg} to ${destinationPeg}`);
+
+    // Step 3: Move n-1 disks from auxiliary to destination, using source as temp
+    // The role of source and auxiliary pegs flip for this subproblem
+    towerOfHanoi(n - 1, auxiliaryPeg, destinationPeg, sourcePeg);
+}
+
+// --- Example Usage ---
+
+console.log("--- Solving Tower of Hanoi for 3 Disks ---");
+towerOfHanoi(3, 'A', 'C', 'B'); // Move 3 disks from A to C, using B as auxiliary
+console.log("
+--- Solving Tower of Hanoi for 2 Disks ---");
+towerOfHanoi(2, 'Source', 'Destination', 'Auxiliary');
+console.log("
+--- Solving Tower of Hanoi for 4 Disks ---");
+towerOfHanoi(4, 'Peg 1', 'Peg 3', 'Peg 2');
+</code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/go.min.js"></script>
+
+<script>hljs.highlightAll();</script>
+  </body>
+</html>
